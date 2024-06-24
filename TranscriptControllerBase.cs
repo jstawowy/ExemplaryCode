@@ -64,8 +64,6 @@ public class TranscriptControllerBase : MonoBehaviour
     }
 #endif
 
-
-
     public async void FinishDay()
     {
         await Task.Delay(3000);
@@ -147,7 +145,6 @@ public class TranscriptControllerBase : MonoBehaviour
     }
     protected void OnDoorOpenned()
     {
-        {
             if (npcDialogue != null)
             {
                 npcDialogue.StartDialogue();
@@ -155,8 +152,6 @@ public class TranscriptControllerBase : MonoBehaviour
 
             else
                 Debug.Log("NPCDialogue is Null");
-        }
-
     }
 
 
@@ -166,7 +161,7 @@ public class TranscriptControllerBase : MonoBehaviour
 
         medalDoors.SetActive(true);
         medalObject.SetActive(true);
-        await Task.Delay(13000);
+        await Task.Delay(animManager.length*1000);
         SoundManager.instance.StopAllBackground();
         SoundManager.instance.PlayBackgroundSound(endingMusic);
         medalDoors.SetActive(false);
@@ -195,7 +190,6 @@ public class TranscriptControllerBase : MonoBehaviour
         videoPlayer.transform.parent.GetComponentInChildren<RawImage>().transform.GetChild(0).gameObject.SetActive(false);
         videoPlayer.gameObject.SetActive(false);
         isLastDialogue = true;
-
     }
 
 
